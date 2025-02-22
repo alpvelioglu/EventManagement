@@ -50,10 +50,11 @@ public class EventsController : ControllerBase
         return result.IsSuccess ? CreatedAtAction(nameof(GetEventDetails), new { id = result.Value }, result.Value) : BadRequest(result.Error);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(Result), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<bool>> UpdateEvent(int id, UpdateEventCommand command)
+    [ProducesResponseType(typeof(Result), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<bool>> UpdateEvent([FromRoute] int id, [FromBody] UpdateEventCommand command)
     {
         if (id != command.Id)
         {
