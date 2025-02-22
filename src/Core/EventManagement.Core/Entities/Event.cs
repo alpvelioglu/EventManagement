@@ -22,4 +22,5 @@ public class Event : BaseEntity
     public virtual Venue Venue { get; set; } = null!;
     
     public virtual ICollection<Participant> Participants { get; set; } = new List<Participant>();
+    public virtual ICollection<User> RegisteredUsers { get; set; } = new List<User>();
 }

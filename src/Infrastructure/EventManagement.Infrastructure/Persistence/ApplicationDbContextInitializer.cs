@@ -69,6 +69,26 @@ public class ApplicationDbContextInitializer
             await _context.SaveChangesAsync();
         }
 
+        // Seed Users
+        if (!await _context.Users.AnyAsync())
+        {
+            await _context.Users.AddRangeAsync(
+                new User 
+                { 
+                    Name = "John Doe",
+                    Email = "john.doe@example.com",
+                    PhoneNumber = "+1234567890"
+                },
+                new User 
+                { 
+                    Name = "Jane Smith",
+                    Email = "jane.smith@example.com",
+                    PhoneNumber = "+0987654321"
+                }
+            );
+            await _context.SaveChangesAsync();
+        }
+
         // Seed Events
         if (!await _context.Events.AnyAsync())
         {

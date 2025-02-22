@@ -11,4 +11,6 @@ public record UpdateEventCommand : IRequest<Result<bool>>
     public DateTime StartDate { get; init; }
     public DateTime EndDate { get; init; }
     public int MaxParticipants { get; init; }
+    public int OrganizerId { get; init; }
+    public int VenueId { get; init; }
 }

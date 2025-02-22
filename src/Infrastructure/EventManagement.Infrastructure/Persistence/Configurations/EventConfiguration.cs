@@ -26,6 +26,10 @@ public class EventConfiguration : IEntityTypeConfiguration<Event>
             .HasForeignKey(e => e.VenueId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasMany(e => e.RegisteredUsers)
+            .WithMany(u => u.RegisteredEvents)
+            .UsingEntity(j => j.ToTable("EventUsers"));
+
         builder.HasQueryFilter(e => !e.IsDeleted);
     }
 }

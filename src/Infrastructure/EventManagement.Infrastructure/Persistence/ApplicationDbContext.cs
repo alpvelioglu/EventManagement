@@ -15,6 +15,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Organizer> Organizers => Set<Organizer>();
     public DbSet<Venue> Venues => Set<Venue>();
     public DbSet<Participant> Participants => Set<Participant>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
