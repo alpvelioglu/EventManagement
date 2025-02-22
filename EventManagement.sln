@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{80BED2A0-B1E6-4563-A708-E228BB817D77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E18DAA55-784D-4EFE-87B2-89149566F851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagement.Core", "src\Core\EventManagement.Core\EventManagement.Core.csproj", "{DA5C0A3D-9AD5-49F4-AE9F-9F08EA7A8B8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{A72CD05A-A6FC-4FF1-BE85-8E8E1F3807D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagement.Application", "src\Application\EventManagement.Application\EventManagement.Application.csproj", "{09FAAEC7-C42B-4640-8D80-642C419B9110}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{F331EA1D-9732-4982-A5D2-7AD554DE7E9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagement.Infrastructure", "src\Infrastructure\EventManagement.Infrastructure\EventManagement.Infrastructure.csproj", "{1AB0263B-221B-4A0D-A4B5-094475C2F901}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{0A046D5E-2566-46D7-8C7D-1FB9CF84CDE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagement.API", "src\Presentation\EventManagement.API\EventManagement.API.csproj", "{53FC32CA-AC1A-492C-8482-55318AA35602}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{813D9125-1C72-42EB-A743-9B60259BCE20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA5C0A3D-9AD5-49F4-AE9F-9F08EA7A8B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA5C0A3D-9AD5-49F4-AE9F-9F08EA7A8B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA5C0A3D-9AD5-49F4-AE9F-9F08EA7A8B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA5C0A3D-9AD5-49F4-AE9F-9F08EA7A8B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09FAAEC7-C42B-4640-8D80-642C419B9110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FAAEC7-C42B-4640-8D80-642C419B9110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FAAEC7-C42B-4640-8D80-642C419B9110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FAAEC7-C42B-4640-8D80-642C419B9110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB0263B-221B-4A0D-A4B5-094475C2F901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB0263B-221B-4A0D-A4B5-094475C2F901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB0263B-221B-4A0D-A4B5-094475C2F901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB0263B-221B-4A0D-A4B5-094475C2F901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FC32CA-AC1A-492C-8482-55318AA35602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FC32CA-AC1A-492C-8482-55318AA35602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FC32CA-AC1A-492C-8482-55318AA35602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FC32CA-AC1A-492C-8482-55318AA35602}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E18DAA55-784D-4EFE-87B2-89149566F851} = {80BED2A0-B1E6-4563-A708-E228BB817D77}
+		{DA5C0A3D-9AD5-49F4-AE9F-9F08EA7A8B8B} = {E18DAA55-784D-4EFE-87B2-89149566F851}
+		{A72CD05A-A6FC-4FF1-BE85-8E8E1F3807D7} = {80BED2A0-B1E6-4563-A708-E228BB817D77}
+		{09FAAEC7-C42B-4640-8D80-642C419B9110} = {A72CD05A-A6FC-4FF1-BE85-8E8E1F3807D7}
+		{F331EA1D-9732-4982-A5D2-7AD554DE7E9E} = {80BED2A0-B1E6-4563-A708-E228BB817D77}
+		{1AB0263B-221B-4A0D-A4B5-094475C2F901} = {F331EA1D-9732-4982-A5D2-7AD554DE7E9E}
+		{0A046D5E-2566-46D7-8C7D-1FB9CF84CDE9} = {80BED2A0-B1E6-4563-A708-E228BB817D77}
+		{53FC32CA-AC1A-492C-8482-55318AA35602} = {0A046D5E-2566-46D7-8C7D-1FB9CF84CDE9}
+	EndGlobalSection
+EndGlobal

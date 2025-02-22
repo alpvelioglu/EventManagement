@@ -1,0 +1,44 @@
+1. Programming language is C#
+2. WebAPI framework is ASP.NET WebAPI
+3. Database is MSSQL
+4. Testing tool is NUnit
+5. The architecture is Clean Architecture (Onion Architecture)
+6. It'll just a API project there is no client now.
+7. Use Serilog for logging.
+8. Use Azure KeyVault for secret management.
+9. If there is good features, write it to Readme.md
+10. Use these layers for Clean Architecture:
+    - Core
+    - Application
+    - Infrastructure
+    - Presentation
+    - SharedKernel (optional, maybe no need for the start)
+    - Tests
+11. Use latest version of Entity Framework Core for database access.
+12. Write efficient EF Core queries.
+13. Try to use best practices for EF Core, for example: lazy loading, include, split query.
+14. Try to use best features in .NET 8 and .NET 9
+15. Use MediatR for handling requests and responses.
+16. Use CQRS pattern
+17. Follow the SOLID and DRY principles
+18. The App should be the fastest possible.
+19. Use seperate folders for Commands, Queries, Handlers etc.
+20. Automatic Migrations: When the app starts, it should create the database and example data.
+21. Code first approach for database design.
+22. Use GitIgnore for ignoring unncessary .NET assembly files.
+23. Log all errors in the database.
+24. Follow result pattern (CRUD).
+
+[tool.run_command]
+auto_accept = true
+auto_run_safe = true
+allowlist = [
+    "dotnet new",
+    "dotnet add",
+    "dotnet sln",
+    "dotnet build",
+    "dotnet run",
+    "dotnet test",
+    "mkdir",
+    "cd"
+]

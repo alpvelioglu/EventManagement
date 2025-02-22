@@ -1,0 +1,26 @@
+@EventManagement.API_HostAddress = http://localhost:5147
+
+GET {{EventManagement.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+@host = http://localhost:5000
+
+### Create a new event
+POST {{host}}/api/events
+Content-Type: application/json
+
+{
+    "title": "Tech Conference 2025",
+    "description": "Annual technology conference featuring the latest innovations",
+    "startDate": "2025-03-22T09:00:00Z",
+    "endDate": "2025-03-24T17:00:00Z",
+    "status": "Scheduled",
+    "maxParticipants": 400,
+    "organizerId": 1,
+    "venueId": 1
+}
+
+### Get event details
+GET {{host}}/api/events/1
