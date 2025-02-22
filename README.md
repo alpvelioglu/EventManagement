@@ -2,11 +2,13 @@
 
 A clean architecture-based event management system built with ASP.NET Core Web API.
 
+Thanks to Windsurf!
+
 ## Technologies & Frameworks
 
-- **.NET 8.0**
+- **.NET 9.0**
 - **ASP.NET Core Web API**
-- **Entity Framework Core 8.0**
+- **Entity Framework Core 9.0**
 - **SQL Server**
 - **NUnit** for testing
 - **Serilog** for logging
