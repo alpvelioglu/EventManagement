@@ -1,124 +1,133 @@
 # Event Management System
 
-A modern event management system built with .NET 8, following Clean Architecture principles.
+A clean architecture-based event management system built with ASP.NET Core Web API.
+
+## Technologies & Frameworks
+
+- **.NET 8.0**
+- **ASP.NET Core Web API**
+- **Entity Framework Core 8.0**
+- **SQL Server**
+- **NUnit** for testing
+- **Serilog** for logging
+- **MediatR** for CQRS pattern
+- **AutoMapper** for object mapping
+
+## Architecture
+
+The solution follows Clean Architecture (Onion Architecture) principles with the following layers:
+
+1. **Core Layer**
+   - Domain entities
+   - Interfaces
+   - Common utilities
+
+2. **Application Layer**
+   - Commands and Queries (CQRS)
+   - DTOs
+   - Interfaces
+   - Validation
+   - Business logic
+
+3. **Infrastructure Layer**
+   - Database context
+   - Repositories
+   - External service implementations
+   - Logging implementation
+
+4. **Presentation Layer (API)**
+   - Controllers
+   - Middleware
+   - API configurations
 
 ## Features
 
-- **Clean Architecture**: Organized in layers (Core, Application, Infrastructure, Presentation)
-- **CQRS Pattern**: Using MediatR for command and query separation
-- **Entity Framework Core**: Code-first approach with SQL Server
-- **Error Handling**: Comprehensive error logging with Serilog and database tracking
-- **Azure Key Vault**: Secure secret management
-- **API Documentation**: Example requests in EventManagement.API.http
-- **Automatic Database Migration**: Database and seed data created on startup
-- **Unit Testing**: Comprehensive test coverage with NUnit
+- Event management (Create, Update, Delete, Cancel)
+- Participant management
+- CQRS pattern implementation
+- Comprehensive error handling
+- Database logging with Serilog
+- Automatic database migrations
+- Unit tests with NUnit
 
 ## Getting Started
 
-1. Update connection string in `appsettings.json`
-2. Configure Azure Key Vault URL if using
-3. Run the application - database will be created automatically
+1. **Prerequisites**
+   - .NET 8.0 SDK
+   - SQL Server
+   - Visual Studio 2022 or VS Code
+
+2. **Database Setup**
+   ```bash
+   dotnet ef database update
+   ```
+
+3. **Running the Application**
+   ```bash
+   dotnet run --project src/Presentation/EventManagement.API/EventManagement.API.csproj
+   ```
+
+4. **Running Tests**
+   ```bash
+   dotnet test Tests/EventManagement.Tests/EventManagement.Tests.csproj
+   ```
 
 ## Project Structure
 
 ```
-src/
-├── Core/                  # Entities, interfaces, common
-├── Application/          # Business logic, CQRS handlers
-├── Infrastructure/       # Data access, external services
-└── Presentation/        # API controllers, middleware
-tests/
-└── EventManagement.Tests/ # Unit tests
+├── src/
+│   ├── Core/                      # Domain entities and interfaces
+│   ├── Application/              # Business logic and CQRS
+│   ├── Infrastructure/           # Data access and external services
+│   └── Presentation/            # API endpoints and configuration
+└── tests/
+    └── EventManagement.Tests/   # Unit tests
 ```
+
+## Best Practices
+
+- Clean Architecture principles
+- SOLID principles
+- CQRS pattern
+- Repository pattern
+- Unit testing
+- Efficient EF Core queries
+- Comprehensive error handling
+- Proper logging implementation
 
 ## API Endpoints
 
 ### Events
+- `POST /api/event` - Create a new event
+- `PUT /api/event/{id}` - Update an event
+- `DELETE /api/event/{id}` - Delete an event
+- `PUT /api/event/{id}/cancel` - Cancel an event
+- `POST /api/event/register-participant` - Register a participant
 
-#### Create Event
-- **Endpoint**: `POST /api/events`
-- **Description**: Create a new event
-- **Request Body**:
-```json
-{
-    "name": "Event Name",
-    "description": "Event Description",
-    "startDate": "2024-03-01T10:00:00Z",
-    "endDate": "2024-03-01T18:00:00Z",
-    "maxParticipants": 100,
-    "venueId": 1
-}
-```
-- **Response**: Returns the created event ID
+## Error Logging
 
-#### Get Event Details
-- **Endpoint**: `GET /api/events/{id}`
-- **Description**: Get detailed information about a specific event
-- **Response**: Returns event details including participants
+The application uses Serilog for structured logging with the following sinks:
+- Console logging
+- File logging (daily rolling files)
+- SQL Server logging (for errors)
 
-#### Update Event
-- **Endpoint**: `PUT /api/events/{id}`
-- **Description**: Update an existing event
-- **Request Body**: Same as Create Event
-- **Validation**:
-  - Cannot update cancelled events
-  - Cannot reduce max participants below current count
+## Testing
 
-#### Delete Event
-- **Endpoint**: `DELETE /api/events/{id}`
-- **Description**: Delete an event
-- **Validation**:
-  - Cannot delete events with registered participants
+The solution includes comprehensive unit tests using:
+- NUnit test framework
+- Moq for mocking
+- FluentAssertions for readable assertions
 
-#### List Events
-- **Endpoint**: `GET /api/events`
-- **Description**: Get a list of all events
-- **Optional Query Parameters**:
-  - `status`: Filter by event status
-  - `from`: Filter by start date
-  - `to`: Filter by end date
+Tests cover:
+- Commands and Queries
+- Business logic
+- API endpoints
+- Error scenarios
 
-See `EventManagement.API.http` for example requests.
+## Contributing
 
-## Technologies
-
-- ASP.NET Core 8
-- Entity Framework Core
-- MediatR
-- FluentValidation
-- Serilog
-- Azure Key Vault
-- AutoMapper
-- NUnit (Testing)
-
-## Best Practices
-
-- SOLID Principles
-- DRY (Don't Repeat Yourself)
-- Repository Pattern
-- Unit of Work Pattern
-- Result Pattern for responses
-- Comprehensive error logging
-- Clean Architecture
-- CQRS
-- Test-Driven Development (TDD)
-
-## Error Handling
-
-All errors are:
-1. Logged to the database using Serilog
-2. Return appropriate HTTP status codes
-3. Include meaningful error messages
-
-Common error scenarios:
-- 404: Resource not found
-- 400: Invalid request (validation errors)
-- 409: Business rule violations
-- 500: Unexpected server errors
-
-## Performance Considerations
-
-- Efficient EF Core queries with proper includes
-- Async/await for all I/O operations
-- Proper indexing on database tables
-- Response caching where appropriate
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request

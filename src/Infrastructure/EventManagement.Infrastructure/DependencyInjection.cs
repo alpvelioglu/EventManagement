@@ -1,4 +1,3 @@
-using Azure.Identity;
 using EventManagement.Core.Interfaces;
 using EventManagement.Infrastructure.Persistence;
 using EventManagement.Infrastructure.Services;
@@ -39,17 +38,6 @@ public static class DependencyInjection
 
         services.AddLogging(loggingBuilder =>
             loggingBuilder.AddSerilog(dispose: true));
-
-        // Configure Azure Key Vault if enabled
-        if (configuration.GetValue<bool>("UseAzureKeyVault"))
-        {
-            var keyVaultUrl = configuration["KeyVault:Url"];
-            if (!string.IsNullOrEmpty(keyVaultUrl))
-            {
-                var credential = new DefaultAzureCredential();
-                services.AddSingleton(credential);
-            }
-        }
 
         return services;
     }
