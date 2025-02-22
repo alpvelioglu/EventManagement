@@ -55,7 +55,7 @@ The solution follows Clean Architecture (Onion Architecture) principles with the
 ## Getting Started
 
 1. **Prerequisites**
-   - .NET 8.0 SDK
+   - .NET 9.0 SDK
    - SQL Server
    - Visual Studio 2022 or VS Code
 
